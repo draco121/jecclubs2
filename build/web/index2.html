@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>jec clubs</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+        <style>
+            .navbar-custom{
+                background-color: #009999;
+            }
+            .carousel-inner img{
+                width: 100%;
+                height: 100%
+            }
+            .float{
+                background: cadetblue;
+                padding: 1rem;
+                box-shadow: 0 0.25rem 1rem rgba(0,0,0,0.2);
+                border-radius: 15px;
+
+            }
+            .size{
+                width: 100%;
+                height: 570px;
+            }
+            .element {
+                position: relative;
+            }
+
+            /*replace the content value with the
+            corresponding value from the list below*/
+
+            .element:before {
+                content: "\f054";
+                font-family: FontAwesome;
+                font-style: normal;
+                font-weight: normal;
+                text-decoration: inherit;
+                /*--adjust as necessary--*/
+                color: #660066;
+                font-size: 15px;
+                padding-left: 0.5em;
+                position: absolute;
+                top: 10px;
+                left: 0;
+                padding-bottom: 3px;
+            }
+            .next{position: relative;}
+            .next:before{
+                content: "\f054";
+                font-family: FontAwesome;
+                font-style: normal;
+                font-weight: normal;
+                text-decoration: inherit;
+                /*--adjust as necessary--*/
+                color: #660066;
+                font-size: 15px;
+                position: absolute;
+                top: 10px;
+                left: 0;
+                padding-bottom: 20px;
+                padding-right: 15px;
+                padding-top: 20px;
+            }
+            .prev{position: relative;}
+            .prev:before{
+                content: "\f053";
+                font-family: FontAwesome;
+                font-style: normal;
+                font-weight: normal;
+                text-decoration: inherit;
+                /*--adjust as necessary--*/
+                color: #660066;
+                font-size: 15px;
+                position: absolute;
+                top: 10px;
+                left: 0;
+                padding-bottom: 20px;
+                padding-right: 15px;
+                padding-top: 20px;
+            }
+            .grow { transition: all .2s ease-out; }
+            .grow:hover { transform: scale(1.1); }
+            .dropdown-item:hover {
+                background-color: #009999
+            }
+            .flip-card {
+                background-color: transparent;
+                width: 250px;
+                height: 250px;
+                border: 1px solid #f1f1f1;
+                perspective: 1000px; /* Remove this if you don't want the 3D effect */
+            }
+
+            /* This container is needed to position the front and back side */
+            .flip-card-inner {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                transition: transform 0.8s;
+                transform-style: preserve-3d;
+            }
+
+            /* Do an horizontal flip when you move the mouse over the flip box container */
+            .flip-card:hover .flip-card-inner {
+                transform: rotateY(180deg);
+            }
+
+            .flip-card-front, .flip-card-back {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                backface-visibility: hidden;
+            }
+            .flip-card-front {
+                background-color: #009933;
+                color: black;
+            }
+
+            .flip-card-back {
+
+                background-color: #003333;
+                color: white;
+                transform: rotateY(180deg);
+                opacity: 0.85;
+            }
+            .footer{
+                background-color: #009999;
+                text-align: center;
+                border-top-left-radius: 15px;
+                border-top-right-radius: 15px;
+                width: 100%;
+                height: 50px;
+                padding-top: 10px;
+            }
+            body, html {
+                height: 100%;
+                margin: 0;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+           
+        </style>
+    </head>
+    <body style="background-color: #cccccc">
+        <nav class="navbar navbar-expand-sm navbar-custom navbar-dark sticky-top">
+            <img class="navbar-brand" style="width:80px;" src="img/logo.png">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">ABOUT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="web/register.jsp">REGISTER</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">GALLARY</a>
+                    </li>
+
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                            CLUBS
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item element" href="#">RAAG the music club</a>
+                            <a class="dropdown-item element" href="#">THE Literary club</a>
+                            <a class="dropdown-item element" href="#">ASTHETE the art club</a>
+                            <a class="dropdown-item element" href="#">AZAAN the dramatic society</a>
+                            <a class="dropdown-item element" href="#">UDGAM The technical society</a>
+                            <a class="dropdown-item element" href="#">CAMERA EYE the photographic society</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+            <div id="demo" class="carousel slide" data-ride="carousel">
+                <ul class="carousel-indicators">
+                    <li data-target="#demo" data-slide-to="0" class="active"></li>
+                    <li data-target="#demo" data-slide-to="1"></li>
+                    <li data-target="#demo" data-slide-to="2"></li>
+                </ul>
+                <div class="carousel-inner">
+                    <div class="carousel-item active size">
+                        <img src="img/asthete.jpg" alt="art club">
+                        <div class="carousel-caption">
+
+                        </div>   
+                    </div>
+                    <div class="carousel-item size">
+                        <img  src="img/raag.jpg" alt="music">
+                        <div class="carousel-caption">
+
+                        </div>   
+                    </div>
+                    <div class="carousel-item size">
+                        <img src="img/litc.jpg" alt="litrary club">
+                        <div class="carousel-caption">
+
+                        </div>   
+                    </div>
+                    <div class="carousel-item size">
+                        <img src="img/azaan.jpg" alt="azaan">
+                        <div class="carousel-caption">
+
+                        </div>   
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                    <span class="prev grow"></span>
+                </a>
+                <a class="carousel-control-next" href="#demo" data-slide="next">
+                    <span class="next grow"></span>
+                </a>
+            </div>
+        </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-1">
+
+                </div>
+                <div class="col">
+                    <div class="flip-card float grow">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img class="img-fluid" src="img/raag.jpg" alt="Avatar">
+                            </div>
+                            <div class="flip-card-back">
+                                <h3>RAAG:</h3>
+                                <p>Let the music nourish your soul,invigorate your mind and make
+                                    your life worth living. Join the Musical society raag</p>
+
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+                <div class="col">
+                    <div class="flip-card float grow">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img class="img-fluid" src="img/litc.jpg" alt="Avatar">
+                            </div>
+                            <div class="flip-card-back">
+                                <h3>THE LITERARY CLUB</h3>
+                                <p>Step into the scene and let it drip from your fingertips/
+                                    Be a part of The Literary Club.</p>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+                <div class="col">
+                    <div class="flip-card float grow">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img class="img-fluid" src="img/azaan.jpg" alt="Avatar">
+                            </div>
+                            <div class="flip-card-back">
+                                <h3>AZAAN</h3>
+                                <p>All the worlds a stage and most of us are
+                                    desperately unrehearsed.Be a part of Azaan The Dramatic Society</p>
+                            </div>
+                        </div>
+                    </div> 
+                </div> 
+
+            </div>
+            <br>
+             <div class="container text-center">
+                    <h1>WELCOME!!</h1>
+                    <p>Hello folks here we bring you the unified portal to access the cultural and 
+                      traditional societies of Jabalpur Engineering COllege.</p>
+                    <p>Apart from engineering we bring you the young talents of Jabalpur Engineering College.</p>
+                    <p>Take a deep dive into the world of JEC Clubs choose one of the trump cards from here </p>
+                </div>
+            <div class="row">
+               
+                <div class="col-lg-1"></div>
+                <div class="col">
+                    <div class="flip-card float grow">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img class="img-fluid" src="img/camera.jpg" alt="Avatar">
+                            </div>
+                            <div class="flip-card-back">
+                                <h3>THE CAMERA EYE</h3>
+                                <p>Capture the beauty of life and be a part of the camera eye the photographic society</p>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+                <div class="col">
+                    <div class="flip-card float grow">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img class="img-fluid" src="img/asthete.jpg" alt="Avatar">
+                            </div>
+                            <div class="flip-card-back">
+                                <h3>AESTHETE</h3>
+                                <p>Drawing is not what one sees but
+                                    what one makes other see.Color up your life and be a part of Aesthete the art club</p>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+                <div class="col">
+                    <div class="flip-card float grow">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img class="img-fluid" src="img/dance.jpg" alt="Avatar" style="width:250px;height: 215px;">
+                            </div>
+                            <div class="flip-card-back">
+                                <h3>DANCEON</h3>
+                                <p>Just forget your troubles and let dance them off.
+                                    Be a part of Dance society.</p>
+                            </div>
+                        </div>
+                    </div> 
+                </div> 
+
+            </div>
+            <br>
+        </div>
+       
+        <div class="container-fluid">
+            <div class="row">
+                <div class="footer">
+                    <p style="color: #ffffff;" class="font">ALL RIGHTS RESERVED | jecclubs.com</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
